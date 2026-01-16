@@ -342,19 +342,22 @@ Rules are Markdown files that define how Singularity should behave:
 
 ### Rule File Structure
 
-```markdown
+````markdown
 # Rule Name
 
 ## Description
+
 Brief description of the rule
 
 ## When to Apply
+
 - JavaScript projects
 - TypeScript projects
 
 ## Rules
 
 ### Rule 1: Use TypeScript
+
 Always prefer TypeScript over JavaScript for type safety.
 
 ```typescript
@@ -367,8 +370,10 @@ interface User {
 // Bad
 const user = { id: 1, name: "John" };
 ```
+````
 
 ### Rule 2: Error Handling
+
 Always implement proper error handling.
 
 ```typescript
@@ -383,11 +388,14 @@ try {
 ## Examples
 
 ### Example 1
+
 Description...
 
 ## References
+
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
-```
+
+````
 
 ### Built-in Rules
 
@@ -407,7 +415,7 @@ singularity --rules .singularity/rules/*.md "Build a REST API"
 
 # Disable rules
 singularity --no-rules "Quick task"
-```
+````
 
 ---
 
@@ -419,7 +427,7 @@ Commands are defined in `packages/opencode/src/cli/cmd/`:
 
 ```typescript
 // packages/opencode/src/cli/cmd/mycommand.ts
-import { Command } from "yargs"
+import { Command } from "yargs";
 
 export const MyCommand: Command = {
   command: "mycommand",
@@ -428,13 +436,13 @@ export const MyCommand: Command = {
     yargs.option("option1", {
       describe: "First option",
       type: "string",
-      default: "value"
+      default: "value",
     }),
   handler: async (argv) => {
-    console.log("Command executed with:", argv)
+    console.log("Command executed with:", argv);
     // Your command logic here
-  }
-}
+  },
+};
 ```
 
 ### Registering Commands
@@ -442,22 +450,22 @@ export const MyCommand: Command = {
 Add your command to `packages/opencode/src/index.ts`:
 
 ```typescript
-import { MyCommand } from "./cli/cmd/mycommand"
+import { MyCommand } from "./cli/cmd/mycommand";
 
 const cli = yargs(hideBin(process.argv))
   // ... other commands
-  .command(MyCommand)
+  .command(MyCommand);
 ```
 
 ### Command Structure
 
 ```typescript
 interface Command {
-  command: string          // Command name (with aliases)
-  describe: string         // Short description
-  aliases?: string[]       // Command aliases
-  builder?: (yargs: Argv) => Argv  // Option builder
-  handler: (argv: Args) => void | Promise<void>  // Command handler
+  command: string; // Command name (with aliases)
+  describe: string; // Short description
+  aliases?: string[]; // Command aliases
+  builder?: (yargs: Argv) => Argv; // Option builder
+  handler: (argv: Args) => void | Promise<void>; // Command handler
 }
 ```
 
@@ -465,12 +473,12 @@ interface Command {
 
 ```typescript
 // packages/opencode/src/cli/cmd/greet.ts
-import { Command } from "yargs"
+import { Command } from "yargs";
 
 interface Args {
-  name: string
-  formal: boolean
-  count: number
+  name: string;
+  formal: boolean;
+  count: number;
 }
 
 export const GreetCommand: Command = {
@@ -482,28 +490,28 @@ export const GreetCommand: Command = {
       .positional("name", {
         describe: "Name to greet",
         type: "string",
-        default: "World"
+        default: "World",
       })
       .option("formal", {
         describe: "Use formal greeting",
         type: "boolean",
-        default: false
+        default: false,
       })
       .option("count", {
         describe: "Number of greetings",
         type: "number",
-        default: 1
+        default: 1,
       }),
   handler: async (argv: Args) => {
     const greeting = argv.formal
       ? `Good day, ${argv.name}`
-      : `Hello, ${argv.name}!`
+      : `Hello, ${argv.name}!`;
 
     for (let i = 0; i < argv.count; i++) {
-      console.log(greeting)
+      console.log(greeting);
     }
-  }
-}
+  },
+};
 ```
 
 ---
@@ -545,7 +553,7 @@ my-plugin/
 
 ```typescript
 // src/index.ts
-import type { Plugin, PluginInput } from "@singularity-ai/plugin"
+import type { Plugin, PluginInput } from "@singularity-ai/plugin";
 
 export default {
   name: "my-plugin",
@@ -556,23 +564,23 @@ export default {
     myTool: {
       description: "My custom tool",
       parameters: {
-        input: { type: "string", description: "Input" }
+        input: { type: "string", description: "Input" },
       },
       handler: async (input: string) => {
-        return { result: input.toUpperCase() }
-      }
-    }
+        return { result: input.toUpperCase() };
+      },
+    },
   },
 
   hooks: {
     onLoad: (input: PluginInput) => {
-      console.log("Plugin loaded!")
+      console.log("Plugin loaded!");
     },
     onPrompt: (prompt) => {
-      return prompt + "\n[Additional context]"
-    }
-  }
-} satisfies Plugin
+      return prompt + "\n[Additional context]";
+    },
+  },
+} satisfies Plugin;
 ```
 
 ### Official Plugins
@@ -584,8 +592,29 @@ export default {
 
 ### External Plugin Resources
 
-- [awesome-opencode](https://github.com/anomalyco/awesome-opencode) - Community plugins
+- [awesome-opencode](https://github.com/awesome-opencode/awesome-opencode) - Community plugins, themes, agents, and resources for opencode/singularity
 - [Singularity Plugins](https://github.com/DeepthinkAI2025/SingularityPlugins) - Our custom plugins
+
+### Adding Features from Awesome OpenCode
+
+Since Singularity Code is based on OpenCode, you can integrate features and plugins from the [Awesome OpenCode](https://github.com/awesome-opencode/awesome-opencode) repository:
+
+1. **Browse the repository** for plugins, agents, themes, and tools
+2. **Check compatibility** - Most OpenCode plugins work with Singularity Code
+3. **Install via npm** or copy code:
+   ```bash
+   bun add awesome-opencode-plugin-name
+   ```
+4. **Add to configuration**:
+   ```json
+   {
+     "plugin": ["awesome-opencode-plugin-name"]
+   }
+   ```
+5. **Copy and adapt** code from OpenCode features into Singularity structure
+6. **Test integration** to ensure it works with Singularity branding
+
+Always prefer copy-paste from OpenCode to maintain best practices and 2026 features.
 
 ---
 
@@ -630,10 +659,10 @@ src/
 // Always test async code
 describe("myFunction", () => {
   it("should handle async operations", async () => {
-    const result = await myFunction()
-    expect(result).toBeDefined()
-  })
-})
+    const result = await myFunction();
+    expect(result).toBeDefined();
+  });
+});
 ```
 
 ### Security
@@ -716,17 +745,20 @@ singularity --print-logs
 
 1. **Fork the repository**
 2. **Clone your fork**
+
    ```bash
    git clone https://github.com/YOUR-USERNAME/singularity-code.git
    cd singularity-code
    ```
 
 3. **Install dependencies**
+
    ```bash
    bun install
    ```
 
 4. **Start development server**
+
    ```bash
    bun dev
    ```
@@ -791,3 +823,21 @@ Singularity Code is based on OpenCode and follows the same MIT License.
 
 **Last Updated**: 2026-01-16
 **Version**: 0.0.1
+
+---
+
+## Phase 1 Implementation Notes
+
+The following Phase 1 features are currently being implemented in the main Singularity Code repository:
+
+- [x] Create Phase 1 implementation directory structure (ENGINE/ modules/)
+- [x] Implement Anti-Gravity Mode CLI command in singularity-master-cli.js
+- [ ] Create Free-Only API Router (multi-provider-router.js)
+- [ ] Setup DeepSeek Free Tier integration (1M tokens/month)
+- [ ] Create M1-native build scripts (build:m1, benchmark:m1)
+- [ ] Implement Zero-Leak Security Layer (OWASP compliant)
+- [ ] Create 50+ Agent System architecture
+- [ ] Test all implementations on Mac M1
+- [ ] Update GitHub repository with Phase 1 code
+
+See `opencode/plans/AUTONOMOUS-CEO-T+495` for detailed implementation plans.
