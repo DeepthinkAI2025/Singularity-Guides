@@ -382,7 +382,7 @@ See [Awesome OpenCode](https://github.com/awesome-opencode/awesome-opencode) for
 
 ## Integration with SingularityPlugins
 
-Custom plugins from the [SingularityPlugins](https://github.com/DeepthinkAI2025/SingularityPlugins.git) repository can be integrated by:
+Custom plugins from the [SingularityPlugins](https://github.com/Delqhi/SingularityPlugins.git) repository can be integrated by:
 
 1. Cloning the plugins repo
 2. Building the desired plugins
