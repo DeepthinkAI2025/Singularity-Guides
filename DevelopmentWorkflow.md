@@ -17,7 +17,7 @@ Singularity Code follows a modern development workflow optimized for AI-assisted
 
 ```bash
 # Clone repository
-git clone https://github.com/DeepthinkAI2025/singularity-code.git
+git clone https://github.com/Delqhi/singularity-code.git
 cd singularity-code
 
 # Install dependencies
