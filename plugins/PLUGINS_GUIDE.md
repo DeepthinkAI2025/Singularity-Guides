@@ -417,7 +417,7 @@ singularity plugin add @singularity-ai/filesystem
 
 ## Official Singularity Plugins
 
-**Repository:** https://github.com/DeepthinkAI2025/SingularityPlugins
+**Repository:** https://github.com/Delqhi/SingularityPlugins
 
 ### 🎯 Core Orchestration Plugins
 
@@ -526,10 +526,10 @@ singularity plugin add @singularity-ai/research-agent
 
 ```bash
 # From GitHub
-singularity plugin add github:DeepthinkAI2025/SingularityPlugins
+singularity plugin add github:Delqhi/SingularityPlugins
 
 # Or clone and install locally
-git clone https://github.com/DeepthinkAI2025/SingularityPlugins.git
+git clone https://github.com/Delqhi/SingularityPlugins.git
 cd SingularityPlugins
 # Install each plugin
 for dir in */; do
@@ -840,7 +840,7 @@ See these plugins for reference:
 
 1. [Official Plugins](https://github.com/anomalyco/opencode/tree/main/packages/plugin)
 2. [Community Plugins](https://github.com/anomalyco/awesome-opencode)
-3. [Our Plugins](https://github.com/DeepthinkAI2025/SingularityPlugins)
+3. [Our Plugins](https://github.com/Delqhi/SingularityPlugins)
 
 ---
 
@@ -856,4 +856,4 @@ See these plugins for reference:
 
 **Last Updated**: 2026-01-16
 **Total Plugins**: 50+
-**Repository**: https://github.com/DeepthinkAI2025/SingularityPlugins
+**Repository**: https://github.com/Delqhi/SingularityPlugins
