@@ -6,7 +6,7 @@ Welcome to the **Singularity Guides** repository! This is your comprehensive res
 
 ## 🚀 Quick Start
 
-1. **Clone the repository**: `git clone https://github.com/DeepthinkAI2025/singularity-code.git`
+1. **Clone the repository**: `git clone https://github.com/Delqhi/singularity-code.git`
 2. **Install dependencies**: `bun install`
 3. **Start developing**: `bun dev`
 4. **Read the guides**: Start with [Overview](./Overview.md)
@@ -44,7 +44,7 @@ Welcome to the **Singularity Guides** repository! This is your comprehensive res
 
 ```bash
 # Install Singularity Code
-git clone https://github.com/DeepthinkAI2025/singularity-code.git
+git clone https://github.com/Delqhi/singularity-code.git
 cd singularity-code
 bun install
 bun run build
@@ -113,7 +113,7 @@ Use our custom plugin ecosystem:
 
 ```bash
 # Install Singularity plugins
-singularity plugin add https://github.com/DeepthinkAI2025/SingularityPlugins
+singularity plugin add https://github.com/Delqhi/SingularityPlugins
 
 # List available plugins
 singularity plugin list
@@ -140,7 +140,7 @@ We welcome contributions! See our [Development Workflow](./DevelopmentWorkflow.m
 
 ## 🐛 Issues & Support
 
-- **Bug Reports**: [GitHub Issues](https://github.com/DeepthinkAI2025/singularity-code/issues)
+- **Bug Reports**: [GitHub Issues](https://github.com/Delqhi/singularity-code/issues)
 - **Feature Requests**: Use GitHub Discussions
 - **Security Issues**: security@singularity.ai (private disclosure)
 
